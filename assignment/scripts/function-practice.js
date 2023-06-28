@@ -14,6 +14,8 @@ console.log('Test - should say "Hello World!"', hello());
 
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
+console.log("****** Question 2 ********")
+
 function helloName(name) {
   return `Hello, ${name}!`;
 }
@@ -22,6 +24,8 @@ console.log('Test - should say "Hello (name)!"', helloName("Forrest"));
 
 
 // 3. Function to add two numbers together & return the result
+console.log("****** Question 3 ********")
+
 function addNumbers(firstNumber, secondNumber) {
   return firstNumber + secondNumber;
 }
@@ -30,6 +34,8 @@ console.log(addNumbers(3, 4));
 
 
 // 4. Function to multiply three numbers & return the result
+console.log("****** Question 4 ********")
+
 function multiplyThree(num1, num2, num3) {
   return num1 * num2 * num3;
 }
@@ -39,6 +45,8 @@ console.log(multiplyThree(3, 4, 5));
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
+console.log("****** Question 5 ********")
+
 function isPositive(number) {
   if (number > 0) {
     return true;
@@ -54,6 +62,8 @@ console.log('isPositive - should say false', isPositive(-3));
 
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
+console.log("****** Question 6 ********")
+
 function getLast(array) {
   if (array == []) {
     return undefined;
@@ -82,42 +92,34 @@ console.log("Returning last item of array:", getLast(myOtherArray));
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
 
-// function find(value, array) {
-//   for (element of array) {
-//     if (array[element]) == value) {
-//       return true;
-//     }
-//     else {
-//       return false;
-//     }
-//   }
-// }
+console.log("****** Question 7 ********")
 
 function find(value, array) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] == value) {
       return true;
-    } else {
-      return false;
     }
   }
+  return false;
 }
-
 
 const testArrayOne = ['cat', 'dog', 'parrot'];
 const testArrayTwo = [10, 45, 300];
 const testArrayThree = [];
-console.log("Is the value in the array?", find('cat', testArrayOne));
-console.log("Is the value in the array?", find('zebra', testArrayOne));
-console.log("Is the value in the array?", find(45, testArrayTwo));
-console.log("Is the value in the array?", find('cat', testArrayThree));
-//I couldn't figure out how to get it to say "empty array!" even when starting the function with a conditional, if array = [].  I'm not sure if it works differently with 2 arguments..
+console.log("Is the value in the array?", find('cat', testArrayOne)); //should be true
+console.log("Is the value in the array?", find('zebra', testArrayOne)); //should be false
+console.log("Is the value in the array?", find(45, testArrayTwo)); //should be true
+console.log("Is the value in the array?", find('cat', testArrayThree)); //should be false
+
+//took me a while but I realized I needed return false; to be outside of the loop since it would just look at the first value only, and the function(empty loop) would return as undefined.
 
 // ----------------------
 // Stretch Goals
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
+console.log("****** Question 8 ********")
+
 function isFirstLetter(letter, string) {
   if (string[0] == letter) {
     return true;
@@ -129,6 +131,8 @@ console.log('isFirstLetter - should say true', isFirstLetter('a', 'apple'));
 console.log('isFirstLetter - should say false', isFirstLetter('z', 'apple'));
 
 // 9. Function to return the sum of all numbers in an array
+console.log("****** Question 9 ********")
+
 function sumAll(arr) {
   let sum = 0;
   // TODO: loop to add items
@@ -142,15 +146,31 @@ function sumAll(arr) {
 const sumArrayOne = [1, 2, 3, 4, 5];
 const sumArrayTwo = [1, 10, 100, 1000, 10000, 100000];
 
-console.log("The sum of all numbers in an array:", sumAll(sumArrayOne));
-console.log("The sum of all numbers in an array:", sumAll(sumArrayTwo));
+console.log("The sum of all numbers in array 1:", sumAll(sumArrayOne));
+console.log("The sum of all numbers in array 2:", sumAll(sumArrayTwo));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
+console.log("****** Question 10 ********")
 
+function allPositive(arr) {
+  let positiveArray = [];
+  for (value of arr) {
+    if (value > 0) {
+      positiveArray.push(value);
+    }
+  }
+  return positiveArray;
 }
+
+positiveTestArrayOne = [-500, 34, -98, 5, -39, 47, 0];
+positiveTestArrayTwo = [3, 4, 5, 6];
+positiveTestArrayThree = [-4, -3, -9];
+
+console.log("The positive values of array 1:", allPositive(positiveTestArrayOne));
+console.log("The positive values of array 2:", allPositive(positiveTestArrayTwo));
+console.log("The positive values of array 3:", allPositive(positiveTestArrayThree));
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
