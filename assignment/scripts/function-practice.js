@@ -21,6 +21,8 @@ function helloName(name) {
 }
 // Remember to call the function to test
 console.log('Test - should say "Hello (name)!"', helloName("Forrest"));
+let fullName = "Forrest Nelson"
+console.log('Test - should say "Hello (name)!"', helloName(fullName));
 
 
 // 3. Function to add two numbers together & return the result
@@ -31,6 +33,7 @@ function addNumbers(firstNumber, secondNumber) {
 }
 
 console.log(addNumbers(3, 4));
+console.log('The sum of 12 and 5 are:', addNumbers(12, 5))
 
 
 // 4. Function to multiply three numbers & return the result
@@ -41,6 +44,7 @@ function multiplyThree(num1, num2, num3) {
 }
 
 console.log(multiplyThree(3, 4, 5));
+console.log('Multiplying 3, 2, and 6 together:', multiplyThree(3, 2, 6));
 
 
 // 5. Function that will return true if a number is positive, 
@@ -86,7 +90,8 @@ function getLastAgain(array) {
   return array[array.length - 1];
 }
 console.log("other way without conditional:");
-console.log("Returning last item of array:", getLast(myOtherArray));
+console.log("Returning last item of array:", getLastAgain(myOtherArray));
+console.log("Returning last item of array:", getLastAgain(myArray));
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
@@ -111,7 +116,7 @@ console.log("Is the value in the array?", find('zebra', testArrayOne)); //should
 console.log("Is the value in the array?", find(45, testArrayTwo)); //should be true
 console.log("Is the value in the array?", find('cat', testArrayThree)); //should be false
 
-//took me a while but I realized I needed return false; to be outside of the loop since it would just look at the first value only, and the function(empty loop) would return as undefined.
+//took me a while but I realized I needed return false; to be *outside* of the loop since it would just look at the first value only, and the function(empty loop) would return as undefined.
 
 // ----------------------
 // Stretch Goals
