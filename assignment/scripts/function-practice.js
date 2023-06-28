@@ -178,24 +178,31 @@ console.log("The positive values of array 3:", allPositive(positiveTestArrayThre
 //     here in a comment, write the function, and test it!
 console.log("****** Question 11 ********")
 
-//This was a new one for me! I've never heard of split, substr, or join, but I learned based on doing some research. I tried the first one that came up on CodeWars and used an article on freeCodeCamp and MDN to understand how they all work.  https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
+//This was a new one for me! I've never heard of split, substring, or join, but I learned based on doing some research. I tried the first one that came up on CodeWars and used an article on freeCodeCamp and MDN to understand how they all work.  https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
+//Note: My answer didn't work as a solution on CodeWars though.. I'm not sure what the issue was but I think it's referring to my usage of .split
 
-//Problem: Capitalize the first letter of each word in a string (like Jaden Smith, son of Will Smith, did in his tweets)
+//Problem: Capitalize the first letter of each word in a string (like Jaden Smith, son of Will Smith, apparentely did in his tweets)
 
 //Description: Starting with a string of words, we will first need to figure out how we can isolate each word of that string. I know how to capitalize using toUpperCase, and how to choose a specific letter in a string (string[0] being the first).
 // 1 - we create a function called jadenCase with an argument str
-// 2 - we use .split to break out each word of the string str into an array of one-word strings (which I defined as the variable words)
-// 3 - using a loop, we can go through each value of the array and figure out how to capitlize the first letter of each one-word string
-// 4 - 
+// 2 - we use the string method .split to break out each word of the string str into an array of one-word strings (which I assigned to the variable words)
+// 3 - using a loop, we can go through each word in the array and figure out how to capitalize the first letter of each those one-word strings.  Note: The loop uses i as the index (starting at 0) to identify which word of the words array we're referring to in a given loop, and goes through index 0 through the last word (words.length - 1) of the array by incrementing by 1 index every loop.
+// 4 - we want to update each word by saying words[i] = the first letter of words[i] but upper-cased + the rest of words[i] (substring(1) means to return a part of the string from the start index of 1 to the end of the string)
+// 5 - now that we have every word capitalized as an array, we want to bring them back together into one long string - we do that using the array method .join which creates a new string by concatenating all the elements in an array.  then we return that resulting string at the end of the function.
+// 6 - quick summary using the example string
+// a) the string "How can mirrors be real if our eyes aren't real" goes into the jadenCase function, is split into an array ["How", "can", "mirrors",..., "real"]
+// b) then the first letter of each string is capitalized be redefining each word (words[0] = H + ow, words[1] = C + an, words[2] = M + irrors,...) to result in ["How", "Can", "Mirrors",..., "Real"]
+// c) then we join the array to create one long string "How Can Mirrors...Real" and return that resulting string at the end of the function
+// d) so when a string is passed through the function jadenCase( ), like jadenCase( string ), it will go through each of these steps in the function and return the resulting updated string.
 
-jadenString = "How can mirrors be real if our eyes aren't real?"
+jadenString = "How can mirrors be real if our eyes aren't real"
 
 console.log("Jaden tweet (traditional):", jadenString)
 
 function jadenCase(str) {
   let words = str.split(" ");
   for (let i = 0; i < words.length; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    words[i] = words[i][0].toUpperCase() + words[i].substring(1);
     //console.log(words[i]);
   }
   //console.log(words);
