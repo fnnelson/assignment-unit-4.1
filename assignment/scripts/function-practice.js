@@ -15,30 +15,35 @@ console.log('Test - should say "Hello World!"', hello());
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName(name) {
-  return;
+  return `Hello, ${name}!`;
 }
 // Remember to call the function to test
+console.log('Test - should say "Hello (name)!"', helloName("Forrest"));
 
 
 // 3. Function to add two numbers together & return the result
-function addNumbers(firstNumber) {
-  // return firstNumber + secondNumber;
+function addNumbers(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
 }
+
+console.log(addNumbers(3, 4));
 
 
 // 4. Function to multiply three numbers & return the result
-function multiplyThree() {
-
+function multiplyThree(num1, num2, num3) {
+  return num1 * num2 * num3;
 }
+
+console.log(multiplyThree(3, 4, 5));
 
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
 function isPositive(number) {
   if (number > 0) {
-    return;
+    return true;
   }
-  return;
+  return false;
 }
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
@@ -50,15 +55,62 @@ console.log('isPositive - should say false', isPositive(-3));
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
 function getLast(array) {
-
+  if (array == []) {
+    return undefined;
+  }
+  else {
+    return array[array.length - 1];
+  }
 }
+
+let myArray = [];
+console.log("Returning last item of array:", getLast(myArray));
+myArray = ['snap', 'crackle', 'pop'];
+console.log("Returning last item of array:", getLast(myArray));
+
+//but it doesn't seem to need a conditional since an empty array would be undefined either way:
+
+myOtherArray = [];
+
+function getLastAgain(array) {
+  return array[array.length - 1];
+}
+console.log("Returning last item of array:", getLast(myOtherArray));
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
-function find(value, array) {
 
+// function find(value, array) {
+//   for (element of array) {
+//     if (array[element]) == value) {
+//       return true;
+//     }
+//     else {
+//       return false;
+//     }
+//   }
+// }
+
+function find(value, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] == value) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
+
+
+const testArrayOne = ['cat', 'dog', 'parrot'];
+const testArrayTwo = [10, 45, 989];
+const testArrayThree = [];
+console.log("Is the value in the array?", find('cat', testArrayOne));
+console.log("Is the value in the array?", find('zebra', testArrayOne));
+console.log("Is the value in the array?", find(45, testArrayTwo));
+console.log("Is the value in the array?", find('cat', testArrayThree));
+//I couldn't figure out how to get it to say "empty array!" even when starting it with a conditional for when array = [].  I'm not sure if it works differently with 2 arguments..
 
 // ----------------------
 // Stretch Goals
