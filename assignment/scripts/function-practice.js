@@ -75,6 +75,7 @@ myOtherArray = [];
 function getLastAgain(array) {
   return array[array.length - 1];
 }
+console.log("other way without conditional:");
 console.log("Returning last item of array:", getLast(myOtherArray));
 
 // 7. Function to find a value in an array. Return true if the 
@@ -104,13 +105,13 @@ function find(value, array) {
 
 
 const testArrayOne = ['cat', 'dog', 'parrot'];
-const testArrayTwo = [10, 45, 989];
+const testArrayTwo = [10, 45, 300];
 const testArrayThree = [];
 console.log("Is the value in the array?", find('cat', testArrayOne));
 console.log("Is the value in the array?", find('zebra', testArrayOne));
 console.log("Is the value in the array?", find(45, testArrayTwo));
 console.log("Is the value in the array?", find('cat', testArrayThree));
-//I couldn't figure out how to get it to say "empty array!" even when starting it with a conditional for when array = [].  I'm not sure if it works differently with 2 arguments..
+//I couldn't figure out how to get it to say "empty array!" even when starting the function with a conditional, if array = [].  I'm not sure if it works differently with 2 arguments..
 
 // ----------------------
 // Stretch Goals
@@ -118,18 +119,31 @@ console.log("Is the value in the array?", find('cat', testArrayThree));
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  if (string[0] == letter) {
+    return true;
+  } else {
+    return false;
+  }
 }
 console.log('isFirstLetter - should say true', isFirstLetter('a', 'apple'));
 console.log('isFirstLetter - should say false', isFirstLetter('z', 'apple'));
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll() {
+function sumAll(arr) {
   let sum = 0;
   // TODO: loop to add items
-
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
   // TODO: return the sum
+  return sum;
 }
+
+const sumArrayOne = [1, 2, 3, 4, 5];
+const sumArrayTwo = [1, 10, 100, 1000, 10000, 100000];
+
+console.log("The sum of all numbers in an array:", sumAll(sumArrayOne));
+console.log("The sum of all numbers in an array:", sumAll(sumArrayTwo));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
