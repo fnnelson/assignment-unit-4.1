@@ -176,6 +176,33 @@ console.log("The positive values of array 3:", allPositive(positiveTestArrayThre
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+console.log("****** Question 11 ********")
+
+//This was a new one for me! I've never heard of split, substr, or join, but I learned based on doing some research. I tried the first one that came up on CodeWars and used an article on freeCodeCamp and MDN to understand how they all work.  https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
+
+//Problem: Capitalize the first letter of each word in a string (like Jaden Smith, son of Will Smith, did in his tweets)
+
+//Description: Starting with a string of words, we will first need to figure out how we can isolate each word of that string. I know how to capitalize using toUpperCase, and how to choose a specific letter in a string (string[0] being the first).
+// 1 - we create a function called jadenCase with an argument str
+// 2 - we use .split to break out each word of the string str into an array of one-word strings (which I defined as the variable words)
+// 3 - using a loop, we can go through each value of the array and figure out how to capitlize the first letter of each one-word string
+// 4 - 
+
+jadenString = "How can mirrors be real if our eyes aren't real?"
+
+console.log("Jaden tweet (traditional):", jadenString)
+
+function jadenCase(str) {
+  let words = str.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    //console.log(words[i]);
+  }
+  //console.log(words);
+  return words.join(" ");
+};
+
+console.log("Jaden tweet (Jaden-Case):", jadenCase(jadenString));
 
 
 // DO NOT MODIFY
