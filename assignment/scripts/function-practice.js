@@ -184,9 +184,9 @@ console.log("The positive values of array 3:", allPositive(positiveTestArrayThre
 console.log("****** Question 11 ********")
 
 //This was a new one for me! I've never heard of split, substring, or join, but I learned based on doing some research. I tried the first one that came up on CodeWars and used an article on freeCodeCamp and MDN to understand how they all work.  https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
-//Note: My answer didn't work as a solution on CodeWars though.. I'm not sure what the issue was but I think it's referring to my usage of .split
+//Note: My answer seems to work just fine when I test it here, but it didn't work as a solution on CodeWars.. I'm not sure what the issue was but I think it's referring to my usage of .split ?
 
-//Problem: Capitalize the first letter of each word in a string (like Jaden Smith, son of Will Smith, apparentely did in his tweets)
+//Problem: Capitalize the first letter of each word in a multi-word string (like Jaden Smith, son of Will Smith, apparently did with his tweets)
 
 //Description: Starting with a string of words, we will first need to figure out how we can isolate each word of that string. I know how to capitalize using toUpperCase, and how to choose a specific letter in a string (string[0] being the first).
 // 1 - we create a function called jadenCase with an argument str
