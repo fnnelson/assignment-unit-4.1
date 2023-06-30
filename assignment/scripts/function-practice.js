@@ -32,8 +32,8 @@ function addNumbers(firstNumber, secondNumber) {
   return firstNumber + secondNumber;
 }
 
-console.log(addNumbers(3, 4));
-console.log('The sum of 12 and 5 are:', addNumbers(12, 5))
+console.log(addNumbers(3, 4)); //should log 7
+console.log('The sum of 12 and 5 are:', addNumbers(12, 5)) //should log 17
 
 
 // 4. Function to multiply three numbers & return the result
@@ -43,8 +43,8 @@ function multiplyThree(num1, num2, num3) {
   return num1 * num2 * num3;
 }
 
-console.log(multiplyThree(3, 4, 5));
-console.log('Multiplying 3, 2, and 6 together:', multiplyThree(3, 2, 6));
+console.log(multiplyThree(3, 4, 5)); //should log 60
+console.log('Multiplying 3, 2, and 6 together:', multiplyThree(3, 2, 6)); //should log 36
 
 
 // 5. Function that will return true if a number is positive, 
@@ -78,9 +78,9 @@ function getLast(array) {
 }
 
 let myArray = [];
-console.log("Returning last item of array:", getLast(myArray));
+console.log("Returning last item of array:", getLast(myArray)); //should log undefinied
 myArray = ['snap', 'crackle', 'pop'];
-console.log("Returning last item of array:", getLast(myArray));
+console.log("Returning last item of array:", getLast(myArray)); //should log 'pop'
 
 //but it doesn't seem to need a conditional since an empty array would be undefined either way:
 
@@ -90,8 +90,8 @@ function getLastAgain(array) {
   return array[array.length - 1];
 }
 console.log("other way without conditional:");
-console.log("Returning last item of array:", getLastAgain(myOtherArray));
-console.log("Returning last item of array:", getLastAgain(myArray));
+console.log("Returning last item of array:", getLastAgain(myOtherArray)); //should log undefined
+console.log("Returning last item of array:", getLastAgain(myArray)); //should log pop
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
@@ -116,7 +116,7 @@ console.log("Is the value in the array?", find('zebra', testArrayOne)); //should
 console.log("Is the value in the array?", find(45, testArrayTwo)); //should be true
 console.log("Is the value in the array?", find('cat', testArrayThree)); //should be false
 
-//took me a while but I realized I needed return false; to be *outside* of the loop since it would just look at the first value only, and the function(empty loop) would return as undefined.
+//took me a while but I realized I needed return false; to be OUTSIDE of the loop since it would otherwise just look at the first value only, and the function(empty loop) would return as undefined.
 
 // ----------------------
 // Stretch Goals
@@ -134,6 +134,7 @@ function isFirstLetter(letter, string) {
 }
 console.log('isFirstLetter - should say true', isFirstLetter('a', 'apple'));
 console.log('isFirstLetter - should say false', isFirstLetter('z', 'apple'));
+console.log('isFirstLetter - should say false', isFirstLetter('p', 'apple'));
 
 // 9. Function to return the sum of all numbers in an array
 console.log("****** Question 9 ********")
@@ -148,8 +149,8 @@ function sumAll(arr) {
   return sum;
 }
 
-const sumArrayOne = [1, 2, 3, 4, 5];
-const sumArrayTwo = [1, 10, 100, 1000, 10000, 100000];
+const sumArrayOne = [1, 2, 3, 4, 5]; //should equal 15
+const sumArrayTwo = [1, 10, 100, 1000, 10000, 100000]; //should equal 111111
 
 console.log("The sum of all numbers in array 1:", sumAll(sumArrayOne));
 console.log("The sum of all numbers in array 2:", sumAll(sumArrayTwo));
@@ -161,9 +162,9 @@ console.log("****** Question 10 ********")
 
 function allPositive(arr) {
   let positiveArray = [];
-  for (value of arr) {
+  for (let value of arr) {
     if (value > 0) {
-      positiveArray.push(value);
+      positiveArray.push(value); //here if the value of an array passed through this function is positive it will push onto the positiveArray array, and if it's <= 0 it will not be added
     }
   }
   return positiveArray;
@@ -173,9 +174,9 @@ positiveTestArrayOne = [-500, 34, -98, 5, -39, 47, 0];
 positiveTestArrayTwo = [3, 4, 5, 6];
 positiveTestArrayThree = [-4, -3, -9];
 
-console.log("The positive values of array 1:", allPositive(positiveTestArrayOne));
-console.log("The positive values of array 2:", allPositive(positiveTestArrayTwo));
-console.log("The positive values of array 3:", allPositive(positiveTestArrayThree));
+console.log("The positive values of array 1:", allPositive(positiveTestArrayOne)); //should be [34, 5, 47]
+console.log("The positive values of array 2:", allPositive(positiveTestArrayTwo)); //should be the same since they're all positive
+console.log("The positive values of array 3:", allPositive(positiveTestArrayThree)); //should be []
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
@@ -183,7 +184,7 @@ console.log("The positive values of array 3:", allPositive(positiveTestArrayThre
 //     here in a comment, write the function, and test it!
 console.log("****** Question 11 ********")
 
-//This was a new one for me! I've never heard of split, substring, or join, but I learned based on doing some research. I tried the first one that came up on CodeWars and used an article on freeCodeCamp and MDN to understand how they all work.  https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
+//This was a new one for me! I've never heard of split, substring, or join, but I learned a bit based on doing some research. I tried the first one that came up on CodeWars and used an article on freeCodeCamp and MDN to understand how they all work.  https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
 //Note: My answer seems to work just fine when I test it here, but it didn't work as a solution on CodeWars.. I'm not sure what the issue was but I think it's referring to my usage of .split ?
 
 //Problem: Capitalize the first letter of each word in a multi-word string (like Jaden Smith, son of Will Smith, apparently did with his tweets)
@@ -211,7 +212,7 @@ function jadenCase(str) {
     //console.log(words[i]);
   }
   //console.log(words);
-  return words.join(" ");
+  return words.join(" "); //the space here adds a space between each element of the array when joined
 };
 
 console.log("Jaden tweet (Jaden-Case):", jadenCase(jadenString));
